@@ -36,6 +36,18 @@ app.use(cors())
 @
 /============================*/
 
+app.get('/api/test', (req, res) => {
+    try {
+        res.json({
+            status: 200,
+            message: 'Get data has successfully',
+        })
+    } catch (error) {
+        console.error(error)
+        return res.status(500).send('Server error')
+    }
+})
+
 // FETCH PRODUCTS
 app.get('/api/products', (req, res) => {
     connection.query(
